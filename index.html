@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <title>Sound App</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="65">A<span>CLAP</span></div>
+        <div class="83">S<span>HIHAT</span></div>
+        <div class="68">D<span>KICK</span></div>
+        <div class="70">F<span>OPENHAT</span></div>
+        <div class="71">G<span>BOOM</span></div>
+        <div class="72">H<span>RIDE</span></div>
+        <div class="74">J<span>SNARE</span></div>
+        <div class="75">K<span>TOM</span></div>
+        <div class="76">L<span>TINK</span></div>
+      </section>
+
+      <audio
+        class="65"
+        src="./assets/assets_sounds_clap.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="83"
+        src="./assets/assets_sounds_hihat.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="68"
+        src="./assets/assets_sounds_kick.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="70"
+        src="./assets/assets_sounds_openhat.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="71"
+        src="./assets/assets_sounds_boom.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="72"
+        src="./assets/assets_sounds_ride.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="74"
+        src="./assets/assets_sounds_snare.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="75"
+        src="./assets/assets_sounds_tom.wav"
+        type="audio/wav"
+      ></audio>
+      <audio
+        class="76"
+        src="./assets/assets_sounds_tink.wav"
+        type="audio/wav"
+      ></audio>
+    </main>
+
+    <script>
+      const btnHandler = (e) => {
+        const key = document.querySelector(`div[class="${e.keyCode}"]`);
+        const sound = document.querySelector(`audio[class="${e.keyCode}"]`);
+        if (!key) return;
+        key.classList.add("play");
+        key.addEventListener("transitionend", () => {
+          key.classList.remove("play");
+        });
+        sound.play();
+      };
+
+      window.addEventListener("keydown", btnHandler);
+    </script>
+  </body>
+</html>
